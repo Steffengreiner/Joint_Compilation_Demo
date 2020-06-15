@@ -1,0 +1,13 @@
+domain: lib
+language: java
+project_name: Joint_Compilation_Demo
+project_slug: Joint_Compilation_Demo
+project_short_description: Small Program to check for joint compilation by GMaven
+  Plus Plugin
+template_version: '1.0.0 # <<QUBE_NO_BUMP>>'
+template_handle: lib-java
+full_name: Steffen Greiner
+email: steffen.greiner@uni-tuebingen.de
+copyright_holder: QBiC
+github_username: Steffengreiner
+version: 1.0.0-SNAPSHOT
