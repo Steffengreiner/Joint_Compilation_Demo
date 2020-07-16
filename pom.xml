@@ -46,10 +46,29 @@
     </repository>
   </repositories>
   <dependencies>
-  <dependency>
-    <groupId>org.spockframework</groupId>
-    <artifactId>spock-core</artifactId>
-    <scope>test</scope>
-  </dependency>
+    <dependency>
+      <groupId>org.spockframework</groupId>
+      <artifactId>spock-core</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+  <profiles>
+    <profile>
+      <id>groovydocs-generation</id>
+      <activation>
+        <file>
+          <exists>src/main/groovy/</exists>
+        </file>
+      </activation>
+      <reporting>
+        <plugins>
+          <plugin>
+            <groupId>life.qbic</groupId>
+            <artifactId>groovydoc-maven-plugin</artifactId>
+            <version>1.0.0</version>
+          </plugin>
+        </plugins>
+      </reporting>
+    </profile>
+  </profiles>
 </project>
