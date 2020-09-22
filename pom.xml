@@ -4,18 +4,17 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>life.qbic</groupId>
-    <artifactId>parent-pom</artifactId>
-    <version>2.3.0-SNAPSHOT</version>
-  </parent>
   <groupId>life.qbic</groupId>
   <artifactId>Joint_Compilation_Demo</artifactId>
   <version>1.0.0-SNAPSHOT</version> <!-- <<QUBE_FORCE_BUMP>> -->
   <name>Joint_Compilation_Demo</name>
   <url>http://github.com/qbicsoftware/Joint_Compilation_Demo</url>
   <description>Small Program to check for joint compilation by GMaven Plus Plugin</description>
-  <packaging>jar</packaging>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
   <!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
   <repositories>
     <repository>
@@ -38,7 +37,7 @@
         <checksumPolicy>fail</checksumPolicy>
       </releases>
       <snapshots>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
       </snapshots>
       <id>nexus-releases</id>
       <name>QBiC Releases</name>
@@ -50,25 +49,37 @@
       <groupId>org.spockframework</groupId>
       <artifactId>spock-core</artifactId>
       <scope>test</scope>
+      <version>1.3-groovy-2.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>2.5.7</version>
+      <type>pom</type>
     </dependency>
   </dependencies>
-  <profiles>
-    <profile>
-      <id>groovydocs-generation</id>
-      <activation>
-        <file>
-          <exists>src/main/groovy/</exists>
-        </file>
-      </activation>
-      <reporting>
-        <plugins>
-          <plugin>
-            <groupId>life.qbic</groupId>
-            <artifactId>groovydoc-maven-plugin</artifactId>
-            <version>1.0.0</version>
-          </plugin>
-        </plugins>
-      </reporting>
-    </profile>
-  </profiles>
+  <build>
+  <plugins>
+    <plugin>
+      <groupId>life.qbic</groupId>
+      <artifactId>groovydoc-maven-plugin</artifactId>
+      <version>1.0.2-SNAPSHOT</version>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-site-plugin</artifactId>
+      <version>3.7.1</version>
+    </plugin>
+  </plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>life.qbic</groupId>
+        <artifactId>groovydoc-maven-plugin</artifactId>
+        <version>1.0.2-SNAPSHOT</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
 </project>

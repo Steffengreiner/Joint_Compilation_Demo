@@ -1,7 +1,7 @@
 package life.qbic
 
 /**
- * Senseless groovy class just to test for roovydocs joint compilation
+ * Senseless groovy class just to test for groovydocs joint compilation
  *
  * @author: Steffen Greiner
  */
